@@ -28,7 +28,7 @@ def multiplicar_matrizes(a,b):
     while i < len(a):
         row = []
         j = 0
-        while j < len(b):
+        while j < len(b[0]):
             k = 0
             item = 0
             while k < len(a[0]):
