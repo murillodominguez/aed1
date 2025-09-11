@@ -16,7 +16,6 @@ def find_in_lists(lista, index):
 
     return acesso
 
-
 def flatten_list(lista):
     result = []
     for item in lista:

@@ -9,7 +9,6 @@ def is_balanceada(matriz):
     i = 0
     j = 0
 
-
     while quadrantes < 4:
         if j == len(matriz)/2 or j == len(matriz):
             i += 1
