@@ -1,5 +1,7 @@
 import sys
 
+print(sys.argv)
+
 def extract_from_mvc(filepath, extracted_path):
     encoding_dict = {}
     extracted_content = ""
