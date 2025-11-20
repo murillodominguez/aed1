@@ -7,14 +7,24 @@ def compact_to_mvc(filepath, compacted_filepath):
     compacted_txt = ""
     try:
         with open(filepath, encoding="latin-1") as file:
-            content = file.read().split()
+            content = file.read().split('\n')
         c = 0
-        for word in content:
-            if word not in listed_words:
-                word_dict[word] = str(c)
-                c += 1
-            compacted_txt += word_dict.get(word) + '|'
-            listed_words += [word]
+        for i, verse in enumerate(content):
+            verse = verse.split()
+            for word in verse:
+                if word not in listed_words:
+                    word_dict[word] = str(c)
+                    c += 1
+                compacted_txt += word_dict.get(word) + '|'
+                listed_words += [word]
+            if len(content) > 1 and i != len(content) - 1:
+                if '\n' not in listed_words:
+                    listed_words.append('\n')
+                    word_dict['\n'] = str(c)
+                    c += 1
+                print(word_dict)
+                compacted_txt += word_dict.get('\n') + '|'
+            
         
         for i, key in enumerate(word_dict):
             if i < len(word_dict) - 1:

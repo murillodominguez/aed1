@@ -11,14 +11,14 @@ def extract_from_mvc(filepath, extracted_path):
         separated_compaction = content.split('|')
         c = 0
         for string in separated_compaction:
-            if string[0].isalpha():
+            if string[0].isalpha() or string == '\n':
                 encoding_dict[str(c)] = string
                 c += 1
 
         for i, string in enumerate(separated_compaction):
             if string[0].isalpha():
                 break
-            if i < len(separated_compaction) - 1:
+            if i < len(separated_compaction) - 1 and encoding_dict[string] != '\n':
                 extracted_content += encoding_dict[string] + " "
             else:
                 extracted_content += encoding_dict[string]
